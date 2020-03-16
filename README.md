@@ -28,6 +28,6 @@ emm照这个价格原来每个月5美刀的钱能用到秃头了。
 - 注册登录之后就可以看到有一个API keys，在页面的最上面，包括两个字段 app_id 和 app_key，保存下来。
 - 通过[msi](https://github.com/itewqq/MathpixCsharp/releases/download/0.0.1/MathpixCsharp.msi)安装好MathpixCsharp
 - 打开之后在login的form里填入之前的app_id和app_key，只需要第一次打开程序的时候填写。
-- 之后的界面应该能看懂什么意思了(丑是丑了点又不是不能用)
+- 之后的界面应该能看懂什么意思了~~丑是丑了点又不是不能用~~ 也可能不能用，欢迎大家提issue
 
 如果需求比较大的话，以后可以考虑把5美元每月的api自己包装一下来做个全免费的。。毕竟使用次数不限，更重要的是对很多学生党来说信用卡可能不太好搞

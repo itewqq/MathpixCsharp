@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathpixCsharp", "WindowsFormsApp1\MathpixCsharp.csproj", "{7F677AF7-C758-4970-9FD7-8C1F08B9399A}"
+EndProject
+Project("{840C416C-B8F3-42BC-B0DD-F6BB14C9F8CB}") = "AI Setup Project1", "AI Setup Project1\AI Setup Project1.aiproj", "{A5949EB5-7E74-4263-AA19-5D8FB89B039F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		All|Any CPU = All|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7F677AF7-C758-4970-9FD7-8C1F08B9399A}.All|Any CPU.ActiveCfg = Release|Any CPU
+		{7F677AF7-C758-4970-9FD7-8C1F08B9399A}.All|Any CPU.Build.0 = Release|Any CPU
+		{7F677AF7-C758-4970-9FD7-8C1F08B9399A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F677AF7-C758-4970-9FD7-8C1F08B9399A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F677AF7-C758-4970-9FD7-8C1F08B9399A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F677AF7-C758-4970-9FD7-8C1F08B9399A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5949EB5-7E74-4263-AA19-5D8FB89B039F}.All|Any CPU.ActiveCfg = DefaultBuild
+		{A5949EB5-7E74-4263-AA19-5D8FB89B039F}.All|Any CPU.Build.0 = DefaultBuild
+		{A5949EB5-7E74-4263-AA19-5D8FB89B039F}.Debug|Any CPU.ActiveCfg = DefaultBuild
+		{A5949EB5-7E74-4263-AA19-5D8FB89B039F}.Debug|Any CPU.Build.0 = DefaultBuild
+		{A5949EB5-7E74-4263-AA19-5D8FB89B039F}.Release|Any CPU.ActiveCfg = DefaultBuild
+		{A5949EB5-7E74-4263-AA19-5D8FB89B039F}.Release|Any CPU.Build.0 = DefaultBuild
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2F10F43A-7B6A-4D9C-8BDE-908E9412213E}
+	EndGlobalSection
+EndGlobal

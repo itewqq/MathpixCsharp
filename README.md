@@ -1,6 +1,6 @@
 # MathpixCsharp
 
-## 每个月可以免费用1000次的Mathpix Windows客户端
+## 每个月可以免费用1000次的Mathpix Windows客户端，支持图片转word公式，图片转latex代码
 
 鉴于一个月5美元对于国外友人的消费水平来说应该不是问题。。我就只写中文的readme了。。。
 
@@ -15,7 +15,7 @@ emm照这个价格原来每个月5美刀的钱能用到秃头了。
 
 于是就自己写了一个客户端？把API key填进去就可以用了。（我愿称之为木兰mathipix）
 
-![使用测试](/images/test1.gif)
+![使用测试](/images/test2.gif)
 
 ### Requirements:
 - 信用卡一张(visa/mastercard，etc)
@@ -29,6 +29,7 @@ emm照这个价格原来每个月5美刀的钱能用到秃头了。
 - 通过[msi](https://github.com/itewqq/MathpixCsharp/releases/download/0.0.1/MathpixCsharp.msi)安装好MathpixCsharp
 - 打开之后在login的form里填入之前的app_id和app_key，只需要第一次打开程序的时候填写。
 - 之后的界面应该能看懂什么意思了~~丑是丑了点又不是不能用~~ 也可能不能用，欢迎大家提issue
+- **WORD**用户请点击**复制MathML**按钮，然后在word文档里右键->粘贴->仅粘贴文本
 
 如果需求比较大的话，以后可以考虑把5美元每月的api自己包装一下来做个全免费的。。毕竟使用次数不限，更重要的是对很多学生党来说信用卡可能不太好搞
 

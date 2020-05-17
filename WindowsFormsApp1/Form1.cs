@@ -55,13 +55,31 @@ namespace MathpixCsharp
         private async void ScreenShotToCode(Bitmap bit)
         {
             gg.SetImg(bit);
-            textBox1.Text = await gg.GetLatex();
+            try
+            {
+                List<string> codeList = await gg.GetLatex();
+                textBox1.Text = codeList[0];
+                textBox2.Text = codeList[1];
+                textBox3.Text = codeList[2];
+            }
+            catch(Exception e)
+            {
+                //MessageBox.Show("Error: {0}", e.Message);
+                textBox1.Text = "";
+                textBox2.Text = "";
+                textBox3.Text = "";
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            button2.Text = "复制";
+            button2.Text = "重试";
             textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
+            button3.Text = "复制inline";
+            button4.Text = "复制dispaly";
+            button5.Text = "复制MathML";
             ScreenShot sf= new ScreenShot();
             sf.Owner = this;
             this.Opacity = 0.0;
@@ -71,18 +89,56 @@ namespace MathpixCsharp
             this.Opacity = 1.0;
         }
 
-        private void button2_Click(object sender, EventArgs e)//copy the result
+        private void button2_Click(object sender, EventArgs e)//retry
+        {
+            try
+            {
+                ScreenShotToCode(Bit);
+            }
+            catch (System.ArgumentNullException)
+            {
+                MessageBox.Show("错误，请重试");
+            }
+            
+        }
+
+        private void button3_Click(object sender, EventArgs e)
         {
             try
             {
                 Clipboard.SetText(textBox1.Text);
-                button2.Text = "已复制！";
+                button3.Text = "复制成功！";
             }
             catch (System.ArgumentNullException)
             {
-                //MessageBox.Show("错误！代码为空");
+                MessageBox.Show("错误，代码为空！");
             }
-            
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Clipboard.SetText(textBox2.Text);
+                button4.Text = "复制成功！";
+            }
+            catch (System.ArgumentNullException)
+            {
+                MessageBox.Show("错误，代码为空！");
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Clipboard.SetText(textBox3.Text);
+                button5.Text = "复制成功！";
+            }
+            catch (System.ArgumentNullException)
+            {
+                MessageBox.Show("错误，代码为空！");
+            }
         }
     }
 }

@@ -7,12 +7,15 @@ using System.Net.Http;
 using Newtonsoft.Json;
 using System.Drawing;
 using System.Net.Http.Headers;
+using System.Windows.Forms;
 
 namespace MathpixCsharp
 {
     public class DataOptions
     {
         public bool include_latex { get; set; }
+
+        public bool include_mathml { get; set; }
 
         public DataOptions()
         {
@@ -34,17 +37,22 @@ namespace MathpixCsharp
         }
 
     }
+    public class DataItem
+    {
+        public string type { get; set; }
+        public string value { get; set; }
+    }
     public class RespJson
     {
         public double confidence;
         public double confidence_rate;
-        public string text;
+        public List<DataItem> data { get; set; }
 
         public RespJson()
         {
             confidence = 0.0;
             confidence_rate = 0.0;
-            text = "";
+            data = new List<DataItem>();
         }
     }
     public class GetCode
@@ -55,8 +63,9 @@ namespace MathpixCsharp
         
         public GetCode() 
         {
-            Values.formats.Add("text");
+            Values.formats.Add("data");
             Values.data_options.include_latex = true;
+            Values.data_options.include_mathml = true;
         }
 
         public void SetImg(Bitmap bit)
@@ -67,13 +76,14 @@ namespace MathpixCsharp
             Values.src = "data:image/jpeg;base64," + Convert.ToBase64String(imageBytes);
         }
 
-        public async Task<string> GetLatex()
+        public async Task<List<string> > GetLatex()
         {
+            List<string> retL = new List<string>();
             string ret = "";
             var contents =new StringContent (JsonConvert.SerializeObject(Values),Encoding.UTF8, "application/json");
             client.DefaultRequestHeaders.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            //client.DefaultRequestHeaders.Add("content-type", "application/json");
+            //client.DefaultRequestHeaders.Add("Content-Type", "application/json");
             client.DefaultRequestHeaders.Add("app_id", Properties.Settings.Default.id);
             client.DefaultRequestHeaders.Add("app_key", Properties.Settings.Default.key);
             try
@@ -81,20 +91,24 @@ namespace MathpixCsharp
                 HttpResponseMessage response = await client.PostAsync(url,contents);
                 response.EnsureSuccessStatusCode();
                 string responseBody = await response.Content.ReadAsStringAsync();
-                ret= JsonConvert.DeserializeObject<RespJson>(responseBody).text;
-                var ret_b = new StringBuilder(ret);
-                ret_b[0] = ret_b[1] = '$';
-                ret_b[ret_b.Length-1] = ret_b[ret_b.Length-2] = '$';
-                ret = Convert.ToString(ret_b);
-
-                Console.WriteLine(ret);
+                //var tmp=JsonConvert.DeserializeObject<RespJson>(responseBody);
+                ret = JsonConvert.DeserializeObject<RespJson>(responseBody).data[1].value;
+                //var ret_b = new StringBuilder("$$"+ret+"$$");
+                //ret_b[0] = ret_b[1] = '$';
+                //ret_b[ret_b.Length-1] = ret_b[ret_b.Length-2] = '$';
+                //ret = Convert.ToString(ret_b);
+                retL.Add("$"+ret+"$");//Latex inline
+                retL.Add("$$" + ret + "$$");//Latex Presentation
+                ret = JsonConvert.DeserializeObject<RespJson>(responseBody).data[0].value;
+                retL.Add(ret);//MathML
             }
-            catch (HttpRequestException e)
+            catch (Exception e)
             {
+                MessageBox.Show("Http错误 :{0} ,请重试", e.Message);
                 Console.WriteLine("\nException Caught!");
                 Console.WriteLine("Message :{0} ", e.Message);
             }
-            return ret;
+            return retL;
         }
 
     }

@@ -29,7 +29,7 @@ emm照这个价格原来每个月5美刀的钱能用到秃头了。
 - 通过[msi](https://github.com/itewqq/MathpixCsharp/releases/download/0.0.1/MathpixCsharp.msi)安装好MathpixCsharp
 - 打开之后在login的form里填入之前的app_id和app_key，只需要第一次打开程序的时候填写。
 - 之后的界面应该能看懂什么意思了~~丑是丑了点又不是不能用~~ 也可能不能用，欢迎大家提issue
-- **WORD**用户请点击**复制MathML**按钮，然后在word文档里右键->粘贴->仅粘贴文本
+- **WORD**用户请点击**复制MathML**按钮，然后在word文档里**右键->粘贴->仅粘贴文本** 注意不能直接Ctrl+V！！！
 
 如果需求比较大的话，以后可以考虑把5美元每月的api自己包装一下来做个全免费的。。毕竟使用次数不限，更重要的是对很多学生党来说信用卡可能不太好搞
 

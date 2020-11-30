@@ -1,5 +1,13 @@
 ## 更新：已经实现了完全免费无需信用卡和客户端的web版本，地址： https://mathcode.herokuapp.com/ 
 
+P.S.：如果web版出现
+
+Application error An error occurred in the application and your page could not be served. If you are the application owner, check your logs for details. You can do this from the Heroku CLI with the command
+
+说明我本月的heroku免费额度用光了emmmmm（贫穷）：
+
+H82 - Free dyno quota exhausted This indicates that an account’s free dyno hour quota is exhausted and that apps running free dynos are sleeping. You can view your app’s free dyno usage in the Heroku dashboard.
+
 # MathpixCsharp
 
 ## 每个月可以免费用1000次的Mathpix Windows客户端，支持图片转word公式，图片转latex代码

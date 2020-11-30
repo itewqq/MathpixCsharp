@@ -28,7 +28,7 @@ emm照这个价格原来每个月5美刀的钱能用到秃头了。
 ### 使用方法：
 - 首先到 https://dashboard.mathpix.com/ 注册一个开发者账户，需要用到**信用卡**，可能会扣1美元验证信用卡有效性，会退回来。
 - 注册登录之后就可以看到有一个API keys，在页面的最上面，包括两个字段 app_id 和 app_key，保存下来。
-- 通过[msi](https://github.com/itewqq/MathpixCsharp/releases/download/0.0.1/MathpixCsharp.msi)安装好MathpixCsharp
+- 通过[msi](https://github.com/itewqq/MathpixCsharp/releases/download/0.0.2/MathpixCsharpV0.0.2.msi)安装好MathpixCsharp
 - 打开之后在login的form里填入之前的app_id和app_key，只需要第一次打开程序的时候填写。
 - 之后的界面应该能看懂什么意思了~~丑是丑了点又不是不能用~~ 也可能不能用，欢迎大家提issue
 - **WORD**用户请点击**复制MathML**按钮，然后在word文档里**右键->粘贴->仅粘贴文本** 注意不能直接Ctrl+V！！！

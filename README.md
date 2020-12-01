@@ -1,6 +1,6 @@
 ## 更新：已经实现了完全免费无需信用卡和客户端的web版本，地址： https://mathcode.herokuapp.com/   Web版介绍：https://zhuanlan.zhihu.com/p/208212375
 
-### 有任何疑问和需求请提issue https://github.com/itewqq/MathpixCsharp/issues/new
+### 有任何疑问和需求请提[issue](https://github.com/itewqq/MathpixCsharp/issues/new)
 
 P.S.：如果web版出现
 

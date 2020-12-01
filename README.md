@@ -1,5 +1,7 @@
 ## 更新：已经实现了完全免费无需信用卡和客户端的web版本，地址： https://mathcode.herokuapp.com/   Web版介绍：https://zhuanlan.zhihu.com/p/208212375
 
+### 有任何疑问和需求请提issue https://github.com/itewqq/MathpixCsharp/issues/new
+
 P.S.：如果web版出现
 
 Application error An error occurred in the application and your page could not be served. If you are the application owner, check your logs for details. You can do this from the Heroku CLI with the command

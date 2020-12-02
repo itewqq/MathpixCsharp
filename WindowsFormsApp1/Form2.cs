@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,7 @@ namespace MathpixCsharp
         public ScreenShot()
         {
             InitializeComponent();
+            SetStyle(ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer, true);
         }
         public bool begin = false;
         public bool isDoubleClick = false;
@@ -23,6 +25,7 @@ namespace MathpixCsharp
         public Image cachImage = null;
         public int halfWidth = 0;
         public int halfHeight = 0;
+        private Bitmap tempimage;
 
         public void copyScreen()
         {
@@ -40,6 +43,7 @@ namespace MathpixCsharp
             pictureBox1.Height = r.Height;
             pictureBox1.BackgroundImage = img;
             cachImage = img;
+            tempimage = new Bitmap(cachImage);
             halfWidth = r.Width / 2;
             halfHeight = r.Height / 2;
             this.FormBorderStyle = FormBorderStyle.None;
@@ -66,22 +70,10 @@ namespace MathpixCsharp
         {
             if (begin)
             {
-                //Redraw the background image
-                secondPoint = new Point(e.X, e.Y);
-                int minX = Math.Min(firstPoint.X, secondPoint.X);
-                int minY = Math.Min(firstPoint.Y, secondPoint.Y);
-                int maxX = Math.Max(firstPoint.X, secondPoint.X);
-                int maxY = Math.Max(firstPoint.Y, secondPoint.Y);
-
-
-                Image tempimage = new Bitmap(cachImage);
-                Graphics g = Graphics.FromImage(tempimage);
-                //Picture cropping frames
-                g.DrawRectangle(new Pen(Color.Red), minX, minY, maxX - minX, maxY - minY);
-                pictureBox1.Image = tempimage;
-                //Calculation of coordinate information
-                //changePoint((minX + maxX) / 2, (minY + maxY) / 2);
+                this.secondPoint= new Point(e.X, e.Y);
+                pictureBox1.Invalidate();
             }
+            GC.Collect();
         }
 
         /*Screenshot is completed when you let go of the mouse operation */
@@ -112,6 +104,21 @@ namespace MathpixCsharp
             this.Close();
         }
 
-
+        private void pictureBox1_Paint(object sender, PaintEventArgs e)
+        {
+            if (begin)
+            {
+                int minX = Math.Min(firstPoint.X, secondPoint.X);
+                int minY = Math.Min(firstPoint.Y, secondPoint.Y);
+                int maxX = Math.Max(firstPoint.X, secondPoint.X);
+                int maxY = Math.Max(firstPoint.Y, secondPoint.Y);
+                e.Graphics.DrawImage(tempimage, 0, 0);
+                e.Graphics.DrawRectangle(new Pen(Color.Red), minX, minY, maxX - minX, maxY - minY);
+            }
+            else
+            {
+                e.Graphics.DrawImage(tempimage, 0, 0);
+            }
+        }
     }
 }

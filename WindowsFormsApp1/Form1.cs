@@ -34,6 +34,9 @@ namespace MathpixCsharp
             // handle the buttons' font
             button1.Font = new Font("Microsoft YaHei UI", 9f);
             button2.Font = new Font("Microsoft YaHei UI", 9f);
+            button3.Font = new Font("Microsoft YaHei UI", 8f);
+            button4.Font = new Font("Microsoft YaHei UI", 8f);
+            button5.Font = new Font("Microsoft YaHei UI", 8f);
             menuStrip1.Font = new Font("Microsoft YaHei UI", 9f);
             this.StartPosition = FormStartPosition.CenterScreen;
         }
@@ -163,6 +166,11 @@ namespace MathpixCsharp
             t.StartPosition = FormStartPosition.CenterParent;
             t.ShowDialog();
             Properties.Settings.Default.Save();
+        }
+
+        private void 帮助ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/itewqq/MathpixCsharp#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95");
         }
     }
 }

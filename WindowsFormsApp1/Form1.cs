@@ -36,7 +36,7 @@ namespace MathpixCsharp
             button2.Font = new Font("Microsoft YaHei UI", 9f);
             button3.Font = new Font("Microsoft YaHei UI", 8f);
             button4.Font = new Font("Microsoft YaHei UI", 8f);
-            button5.Font = new Font("Microsoft YaHei UI", 8f);
+            button5.Font = new Font("Microsoft YaHei UI", 7f);
             menuStrip1.Font = new Font("Microsoft YaHei UI", 9f);
             this.StartPosition = FormStartPosition.CenterScreen;
         }

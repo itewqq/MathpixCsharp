@@ -58,6 +58,7 @@
             this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ScreenShot";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ScreenShot";
             this.Load += new System.EventHandler(this.ScreenShot_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

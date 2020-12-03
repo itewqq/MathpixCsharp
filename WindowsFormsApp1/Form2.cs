@@ -29,16 +29,17 @@ namespace MathpixCsharp
 
         public void copyScreen()
         {
-            Rectangle r = Screen.PrimaryScreen.Bounds;
+            var screen = Screen.FromControl(this.Owner);
+            Rectangle r = screen.Bounds;//Screen.PrimaryScreen.Bounds;
             Image img = new Bitmap(r.Width, r.Height);
             Graphics g = Graphics.FromImage(img);
-            g.CopyFromScreen(new Point(0, 0), new Point(0, 0), r.Size);
+            g.CopyFromScreen(screen.Bounds.X, screen.Bounds.Y, 0, 0, r.Size);
 
             //Maximize form
             this.Width = r.Width;
             this.Height = r.Height;
-            this.Left = 0;
-            this.Top = 0;
+            this.Left = screen.Bounds.X;
+            this.Top = screen.Bounds.Y;
             pictureBox1.Width = r.Width;
             pictureBox1.Height = r.Height;
             pictureBox1.BackgroundImage = img;
@@ -90,10 +91,11 @@ namespace MathpixCsharp
                 Rectangle rec2 = rec;
                 if (rec.Width > 2 && rec.Height > 2)
                     rec2 = new Rectangle(rec.X + 1, rec.Y + 1, rec.Width - 2, rec.Height - 3);
-                Rectangle r = Screen.PrimaryScreen.Bounds;
+                //Rectangle r = Screen.FromControl(this).Bounds;
+                var screen = Screen.FromControl(this.Owner);
                 Bitmap img = new Bitmap(rec2.Width, rec2.Height);
                 Graphics g = Graphics.FromImage(img);
-                g.CopyFromScreen(rec2.Location, new Point(0,0), rec2.Size);
+                g.CopyFromScreen(rec2.Location.X+screen.Bounds.X, rec2.Location.Y+screen.Bounds.Y, 0, 0, rec2.Size);
 
                 Clipboard.SetImage(img);
 

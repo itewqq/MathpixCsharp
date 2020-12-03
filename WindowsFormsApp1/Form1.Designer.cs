@@ -63,7 +63,7 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(15, 312);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(536, 28);
+            this.textBox1.Size = new System.Drawing.Size(536, 21);
             this.textBox1.TabIndex = 1;
             // 
             // button2
@@ -98,7 +98,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(582, 412);
+            this.button5.Location = new System.Drawing.Point(582, 424);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(122, 44);
             this.button5.TabIndex = 8;
@@ -108,17 +108,17 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(582, 357);
+            this.button4.Location = new System.Drawing.Point(582, 364);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(122, 44);
             this.button4.TabIndex = 7;
-            this.button4.Text = "复制display";
+            this.button4.Text = "Equation";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(582, 298);
+            this.button3.Location = new System.Drawing.Point(582, 299);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(122, 45);
             this.button3.TabIndex = 6;
@@ -130,14 +130,14 @@
             // 
             this.textBox3.Location = new System.Drawing.Point(15, 424);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(536, 28);
+            this.textBox3.Size = new System.Drawing.Size(536, 21);
             this.textBox3.TabIndex = 5;
             // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(15, 364);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(536, 28);
+            this.textBox2.Size = new System.Drawing.Size(536, 21);
             this.textBox2.TabIndex = 4;
             // 
             // pictureBox1
@@ -157,7 +157,7 @@
             this.ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(728, 34);
+            this.menuStrip1.Size = new System.Drawing.Size(728, 32);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -174,21 +174,21 @@
             // 重置ToolStripMenuItem
             // 
             this.重置ToolStripMenuItem.Name = "重置ToolStripMenuItem";
-            this.重置ToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.重置ToolStripMenuItem.Size = new System.Drawing.Size(182, 34);
             this.重置ToolStripMenuItem.Text = "重置Key";
             this.重置ToolStripMenuItem.Click += new System.EventHandler(this.重置ToolStripMenuItem_Click);
             // 
             // 检查更新ToolStripMenuItem
             // 
             this.检查更新ToolStripMenuItem.Name = "检查更新ToolStripMenuItem";
-            this.检查更新ToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.检查更新ToolStripMenuItem.Size = new System.Drawing.Size(182, 34);
             this.检查更新ToolStripMenuItem.Text = "检查更新";
             this.检查更新ToolStripMenuItem.Click += new System.EventHandler(this.检查更新ToolStripMenuItem_Click);
             // 
             // 帮助ToolStripMenuItem
             // 
             this.帮助ToolStripMenuItem.Name = "帮助ToolStripMenuItem";
-            this.帮助ToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.帮助ToolStripMenuItem.Size = new System.Drawing.Size(182, 34);
             this.帮助ToolStripMenuItem.Text = "帮助";
             this.帮助ToolStripMenuItem.Click += new System.EventHandler(this.帮助ToolStripMenuItem_Click);
             // 

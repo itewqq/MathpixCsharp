@@ -9,10 +9,13 @@ using System.Threading.Tasks;
 using System.Threading;
 using System.Windows.Forms;
 
+using MaterialSkin;
+using MaterialSkin.Controls;
+
 
 namespace MathpixCsharp
 {
-    public partial class Form1 : Form
+    public partial class Form1 : MaterialForm
     {
         GetCode gg = new GetCode();
         Bitmap bit;
@@ -24,6 +27,14 @@ namespace MathpixCsharp
         public Form1()
         {
             InitializeComponent();
+            var materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+            materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
+            // handle the buttons' font
+            button1.Font = new Font("Microsoft YaHei UI", 9f);
+            button2.Font = new Font("Microsoft YaHei UI", 9f);
+            menuStrip1.Font = new Font("Microsoft YaHei UI", 9f);
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
@@ -49,7 +60,7 @@ namespace MathpixCsharp
             
             if ((int)e.Modifiers == ((int)Keys.Control + (int)Keys.Alt)&&e.KeyCode==Keys.M)
             {
-                //
+                //TODO: global hot key register
             }
         }
         private async void ScreenShotToCode(Bitmap bit)
@@ -139,6 +150,19 @@ namespace MathpixCsharp
             {
                 MessageBox.Show("错误，代码为空！");
             }
+        }
+
+        private void 检查更新ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/itewqq/MathpixCsharp/releases");
+        }
+
+        private void 重置ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            login t = new login();
+            t.StartPosition = FormStartPosition.CenterParent;
+            t.ShowDialog();
+            Properties.Settings.Default.Save();
         }
     }
 }

@@ -89,7 +89,7 @@ namespace MathpixCsharp
                 Rectangle rec = new Rectangle(minX, minY, maxX - minX, maxY - minY);
                 Rectangle rec2 = rec;
                 if (rec.Width > 2 && rec.Height > 2)
-                    rec2 = new Rectangle(rec.X + 1, rec.Y + 1, rec.Width - 2, rec.Height - 2);
+                    rec2 = new Rectangle(rec.X + 1, rec.Y + 1, rec.Width - 2, rec.Height - 3);
                 Rectangle r = Screen.PrimaryScreen.Bounds;
                 Bitmap img = new Bitmap(rec2.Width, rec2.Height);
                 Graphics g = Graphics.FromImage(img);
@@ -101,6 +101,7 @@ namespace MathpixCsharp
                 Form1 FaForm = (Form1)this.Owner;
                 FaForm.Bit = new Bitmap(img);
             }
+            GC.Collect();
             this.Close();
         }
 

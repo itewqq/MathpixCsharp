@@ -46,12 +46,14 @@ namespace MathpixCsharp
     {
         public double confidence;
         public double confidence_rate;
+        public string text;
         public List<DataItem> data { get; set; }
 
         public RespJson()
         {
             confidence = 0.0;
             confidence_rate = 0.0;
+            text = "";
             data = new List<DataItem>();
         }
     }
@@ -64,6 +66,7 @@ namespace MathpixCsharp
         public GetCode() 
         {
             Values.formats.Add("data");
+            Values.formats.Add("text");
             Values.data_options.include_latex = true;
             Values.data_options.include_mathml = true;
         }
@@ -91,20 +94,31 @@ namespace MathpixCsharp
                 HttpResponseMessage response = await client.PostAsync(url,contents);
                 response.EnsureSuccessStatusCode();
                 string responseBody = await response.Content.ReadAsStringAsync();
-                //var tmp=JsonConvert.DeserializeObject<RespJson>(responseBody);
-                ret = JsonConvert.DeserializeObject<RespJson>(responseBody).data[1].value;
+                var tmp = JsonConvert.DeserializeObject<RespJson>(responseBody);
+                //ret = JsonConvert.DeserializeObject<RespJson>(responseBody).data[1].value;
+                var ttt = tmp.text;
+                ret = tmp.text.Replace(@"\)", "$").Replace(@"\(","$").Replace(@"\]", "$$").Replace(@"\[","$$");
+                
+                
                 //var ret_b = new StringBuilder("$$"+ret+"$$");
                 //ret_b[0] = ret_b[1] = '$';
                 //ret_b[ret_b.Length-1] = ret_b[ret_b.Length-2] = '$';
                 //ret = Convert.ToString(ret_b);
-                retL.Add("$"+ret+"$");//Latex inline
-                retL.Add("$$" + ret + "$$");//Latex Presentation
-                ret = JsonConvert.DeserializeObject<RespJson>(responseBody).data[0].value;
-                retL.Add(ret);//MathML
+                retL.Add(ret);//Latex inline
+                retL.Add("$" + ret + "$");//Latex Presentation
+                if (tmp.data.Count != 0)
+                {
+                    ret = tmp.data[0].value;
+                    retL.Add(ret);//MathML
+                }
+                else
+                {
+                    retL.Add("MathML功能目前只能识别单个公式~");
+                }
             }
             catch (Exception e)
             {
-                MessageBox.Show("Http错误 :{0} ,请重试", e.Message);
+                MessageBox.Show("Http错误 :{0} ,请准确截取公式，或检查Key是否正确", e.Message);
                 Console.WriteLine("\nException Caught!");
                 Console.WriteLine("Message :{0} ", e.Message);
             }

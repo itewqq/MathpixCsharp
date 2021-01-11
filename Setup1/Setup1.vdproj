@@ -52,12 +52,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_C6127D84699D51CA3AF41C710849F673"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_921FF4E1967C4055AB8A3974C4D41F38"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -71,6 +65,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_6C7F95FA2008EDFAE87C3ECEF01595A2"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_C6127D84699D51CA3AF41C710849F673"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -91,6 +91,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -107,6 +115,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -336,15 +352,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:MathpixCsharp"
-        "ProductCode" = "8:{1609FDFF-94DD-43EA-BBC4-361136B689BB}"
-        "PackageCode" = "8:{0B976B0B-2490-4F32-ADD9-8CD0771220AE}"
+        "ProductCode" = "8:{1D33C27C-BBCB-4F2B-9567-B3444B4A8EDE}"
+        "PackageCode" = "8:{5F9A9277-43EC-4C46-BECD-37E24E1FF9F5}"
         "UpgradeCode" = "8:{3FF64C93-B1F5-4B2E-81C6-FA6D56BB4DD0}"
         "AspNetVersion" = "8:"
         "RestartWWWService" = "11:FALSE"
-        "RemovePreviousVersions" = "11:FALSE"
+        "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:0.0.3"
+        "ProductVersion" = "8:0.0.4"
         "Manufacturer" = "8:itewqq"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -474,7 +490,7 @@
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_AECAD747A60D41F18295605363E0965C"
             {
             "Name" = "8:卸载"
-            "Arguments" = "8:/x {1609FDFF-94DD-43EA-BBC4-361136B689BB}"
+            "Arguments" = "8:/x {1D33C27C-BBCB-4F2B-9567-B3444B4A8EDE}"
             "Description" = "8:"
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"

@@ -18,6 +18,8 @@ namespace MathpixCsharp
     public partial class Form1 : MaterialForm
     {
         GetCode gg = new GetCode();
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        private static extern bool RegisterHotKey(IntPtr hWnd, int id, int fsModifiers, int vk);
         Bitmap bit;
         string app_id="";
         string app_key = "";
@@ -39,6 +41,7 @@ namespace MathpixCsharp
             button5.Font = new Font("Microsoft YaHei UI", 7f);
             menuStrip1.Font = new Font("Microsoft YaHei UI", 9f);
             this.StartPosition = FormStartPosition.CenterScreen;
+            RegisterHotKey(this.Handle,0,1|2,(int)Keys.M);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -56,16 +59,27 @@ namespace MathpixCsharp
                 app_key = Properties.Settings.Default.key;
                 //MessageBox.Show(app_id);
             }
+            notifyIcon1.Visible = true;
+            // notifyIcon1.ContextMenuStrip = this.menuStrip1.ContextMenuStrip;
+            this.notifyIcon1.ContextMenuStrip = new System.Windows.Forms.ContextMenuStrip();
+            this.notifyIcon1.ContextMenuStrip.Items.Add("退出", null, this.TrayMenuExit);
         }
 
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        void TrayMenuExit(object sender, EventArgs e)
         {
-            
-            if ((int)e.Modifiers == ((int)Keys.Control + (int)Keys.Alt)&&e.KeyCode==Keys.M)
+            Application.Exit();
+        }
+
+        protected override void WndProc(ref Message m)
+        {
+            base.WndProc(ref m);
+            if(m.Msg== 0x0312 && m.WParam.ToInt32()==0)
             {
-                //TODO: global hot key register
+                Do_Work();
             }
         }
+
+
         private async void ScreenShotToCode(Bitmap bit)
         {
             gg.SetImg(bit);
@@ -85,7 +99,7 @@ namespace MathpixCsharp
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Do_Work()
         {
             button2.Text = "重试";
             textBox1.Text = "";
@@ -94,13 +108,22 @@ namespace MathpixCsharp
             button3.Text = "复制inline";
             button4.Text = "复制dispaly";
             button5.Text = "复制MathML";
-            ScreenShot sf= new ScreenShot();
+            ScreenShot sf = new ScreenShot();
             sf.Owner = this;
             this.Opacity = 0.0;
             sf.ShowDialog();//make sure it's done
             this.pictureBox1.Image = Bit;
             ScreenShotToCode(Bit);
             this.Opacity = 1.0;
+            if (this.Visible==false)
+            {
+                this.Show();
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Do_Work();
         }
 
         private void button2_Click(object sender, EventArgs e)//retry
@@ -171,6 +194,28 @@ namespace MathpixCsharp
         private void 帮助ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://github.com/itewqq/MathpixCsharp#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95");
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                e.Cancel = true;
+                Hide();
+            }
+        }
+
+        private void 退出程序ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
+        }
+
+        private void notifyIcon1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left&&this.Visible==false)
+            {
+                this.Show();
+            }
         }
     }
 }

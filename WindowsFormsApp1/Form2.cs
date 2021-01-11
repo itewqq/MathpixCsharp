@@ -17,6 +17,7 @@ namespace MathpixCsharp
         {
             InitializeComponent();
             SetStyle(ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer, true);
+            TopMost = true;
         }
         public bool begin = false;
         public bool isDoubleClick = false;

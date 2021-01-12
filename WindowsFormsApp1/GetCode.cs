@@ -105,7 +105,7 @@ namespace MathpixCsharp
                 //ret_b[ret_b.Length-1] = ret_b[ret_b.Length-2] = '$';
                 //ret = Convert.ToString(ret_b);
                 retL.Add(ret);//Latex inline
-                retL.Add("\\begin{equation}" + ret.Substring(1,ret.Length-2) + "\\end{equation}");//Latex Presentation
+                retL.Add("\\begin{equation}\n" + ret.Substring(1,ret.Length-2) + "\n\\end{equation}");//Latex Presentation
                 if (tmp.data.Count != 0)
                 {
                     ret = tmp.data[0].value;

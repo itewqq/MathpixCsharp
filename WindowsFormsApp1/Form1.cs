@@ -106,7 +106,7 @@ namespace MathpixCsharp
             textBox2.Text = "";
             textBox3.Text = "";
             button3.Text = "复制inline";
-            button4.Text = "复制dispaly";
+            button4.Text = "Equation";
             button5.Text = "复制MathML";
             ScreenShot sf = new ScreenShot();
             sf.Owner = this;

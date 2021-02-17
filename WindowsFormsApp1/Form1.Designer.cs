@@ -34,6 +34,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.labelUses = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -44,9 +45,12 @@
             this.ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.重置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.检查更新ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.退出程序ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.购买第三方KeyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.捐赠ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.帮助ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -87,6 +91,8 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.labelUses);
             this.panel1.Controls.Add(this.button5);
             this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.button3);
@@ -102,6 +108,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(485, 377);
             this.panel1.TabIndex = 3;
+            // 
+            // labelUses
+            // 
+            this.labelUses.AutoSize = true;
+            this.labelUses.Location = new System.Drawing.Point(427, 5);
+            this.labelUses.Name = "labelUses";
+            this.labelUses.Size = new System.Drawing.Size(23, 12);
+            this.labelUses.TabIndex = 9;
+            this.labelUses.Text = "INF";
             // 
             // button5
             // 
@@ -166,7 +181,8 @@
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ToolStripMenuItem});
+            this.ToolStripMenuItem,
+            this.帮助ToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
@@ -178,8 +194,9 @@
             // 
             this.ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.重置ToolStripMenuItem,
+            this.购买第三方KeyToolStripMenuItem,
             this.检查更新ToolStripMenuItem,
-            this.帮助ToolStripMenuItem,
+            this.捐赠ToolStripMenuItem,
             this.退出程序ToolStripMenuItem});
             this.ToolStripMenuItem.Name = "ToolStripMenuItem";
             this.ToolStripMenuItem.Size = new System.Drawing.Size(44, 22);
@@ -199,13 +216,6 @@
             this.检查更新ToolStripMenuItem.Text = "检查更新";
             this.检查更新ToolStripMenuItem.Click += new System.EventHandler(this.检查更新ToolStripMenuItem_Click);
             // 
-            // 帮助ToolStripMenuItem
-            // 
-            this.帮助ToolStripMenuItem.Name = "帮助ToolStripMenuItem";
-            this.帮助ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.帮助ToolStripMenuItem.Text = "帮助";
-            this.帮助ToolStripMenuItem.Click += new System.EventHandler(this.帮助ToolStripMenuItem_Click);
-            // 
             // 退出程序ToolStripMenuItem
             // 
             this.退出程序ToolStripMenuItem.Name = "退出程序ToolStripMenuItem";
@@ -219,6 +229,36 @@
             this.notifyIcon1.Text = "MathpixCsharp";
             this.notifyIcon1.Visible = true;
             this.notifyIcon1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseClick);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(367, 5);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "剩余次数";
+            // 
+            // 购买第三方KeyToolStripMenuItem
+            // 
+            this.购买第三方KeyToolStripMenuItem.Name = "购买第三方KeyToolStripMenuItem";
+            this.购买第三方KeyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.购买第三方KeyToolStripMenuItem.Text = "购买第三方Key";
+            this.购买第三方KeyToolStripMenuItem.Click += new System.EventHandler(this.购买第三方KeyToolStripMenuItem_Click);
+            // 
+            // 捐赠ToolStripMenuItem
+            // 
+            this.捐赠ToolStripMenuItem.Name = "捐赠ToolStripMenuItem";
+            this.捐赠ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.捐赠ToolStripMenuItem.Text = "捐赠";
+            this.捐赠ToolStripMenuItem.Click += new System.EventHandler(this.捐赠ToolStripMenuItem_Click);
+            // 
+            // 帮助ToolStripMenuItem1
+            // 
+            this.帮助ToolStripMenuItem1.Name = "帮助ToolStripMenuItem1";
+            this.帮助ToolStripMenuItem1.Size = new System.Drawing.Size(68, 22);
+            this.帮助ToolStripMenuItem1.Text = "使用说明";
+            this.帮助ToolStripMenuItem1.Click += new System.EventHandler(this.帮助ToolStripMenuItem1_Click);
             // 
             // Form1
             // 
@@ -262,9 +302,13 @@
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 重置ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 检查更新ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 帮助ToolStripMenuItem;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.ToolStripMenuItem 退出程序ToolStripMenuItem;
+        private System.Windows.Forms.Label labelUses;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolStripMenuItem 购买第三方KeyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 捐赠ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 帮助ToolStripMenuItem1;
     }
 }
 

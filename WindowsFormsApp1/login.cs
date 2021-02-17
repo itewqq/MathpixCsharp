@@ -33,6 +33,14 @@ namespace MathpixCsharp
         {
             Properties.Settings.Default.id=textBox1.Text;
             Properties.Settings.Default.key=textBox2.Text;
+            if (this.officialChoose.Checked)
+            {
+                Properties.Settings.Default.isOfficial = true;
+            }
+            else
+            {
+                Properties.Settings.Default.isOfficial = false;
+            }
             this.Dispose();
         }
 

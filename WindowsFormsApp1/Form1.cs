@@ -40,6 +40,8 @@ namespace MathpixCsharp
             button4.Font = new Font("Microsoft YaHei UI", 8f);
             button5.Font = new Font("Microsoft YaHei UI", 7f);
             menuStrip1.Font = new Font("Microsoft YaHei UI", 9f);
+            labelUses.Font = new Font("Microsoft YaHei UI", 8f);
+            label1.Font = new Font("Microsoft YaHei UI", 8f);
             this.StartPosition = FormStartPosition.CenterScreen;
             RegisterHotKey(this.Handle,0,1|2,(int)Keys.M);
         }
@@ -89,10 +91,14 @@ namespace MathpixCsharp
                 textBox1.Text = codeList[0];
                 textBox2.Text = codeList[1];
                 textBox3.Text = codeList[2];
+                if (!Properties.Settings.Default.isOfficial)
+                {
+                    this.labelUses.Text = codeList[3];
+                }
             }
             catch(Exception e)
             {
-                //MessageBox.Show("Error: {0}", e.Message);
+                MessageBox.Show(e.Message,"Error: {0}");
                 textBox1.Text = "";
                 textBox2.Text = "";
                 textBox3.Text = "";
@@ -144,7 +150,7 @@ namespace MathpixCsharp
             try
             {
                 Clipboard.SetText(textBox1.Text);
-                button3.Text = "复制成功！";
+                button3.Text = "已复制";
             }
             catch (System.ArgumentNullException)
             {
@@ -157,7 +163,7 @@ namespace MathpixCsharp
             try
             {
                 Clipboard.SetText(textBox2.Text);
-                button4.Text = "复制成功！";
+                button4.Text = "已复制";
             }
             catch (System.ArgumentNullException)
             {
@@ -170,7 +176,7 @@ namespace MathpixCsharp
             try
             {
                 Clipboard.SetText(textBox3.Text);
-                button5.Text = "复制成功！";
+                button5.Text = "已复制";
             }
             catch (System.ArgumentNullException)
             {
@@ -189,11 +195,6 @@ namespace MathpixCsharp
             t.StartPosition = FormStartPosition.CenterParent;
             t.ShowDialog();
             Properties.Settings.Default.Save();
-        }
-
-        private void 帮助ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            System.Diagnostics.Process.Start("https://github.com/itewqq/MathpixCsharp#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95");
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -216,6 +217,21 @@ namespace MathpixCsharp
             {
                 this.Show();
             }
+        }
+
+        private void 购买第三方KeyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://mathcode.herokuapp.com/buy");
+        }
+
+        private void 帮助ToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/itewqq/MathpixCsharp#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95");
+        }
+
+        private void 捐赠ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://mathcode.herokuapp.com/hello");
         }
     }
 }

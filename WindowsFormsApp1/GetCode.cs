@@ -44,6 +44,9 @@ namespace MathpixCsharp
     }
     public class RespJson
     {
+        public int code;
+        public string message;
+        public int uses;
         public double confidence;
         public double confidence_rate;
         public string text;
@@ -60,7 +63,8 @@ namespace MathpixCsharp
     public class GetCode
     {
         private static readonly HttpClient client = new HttpClient();
-        private string url = "https://api.mathpix.com/v3/text";
+        private string OfficialUrl = "https://api.mathpix.com/v3/text";
+        private string QspUrl = "https://service-hzv8746l-1255970853.sh.apigw.tencentcs.com/release/mathcode";
         RootObject Values = new RootObject();
         
         public GetCode() 
@@ -81,6 +85,7 @@ namespace MathpixCsharp
 
         public async Task<List<string> > GetLatex()
         {
+            bool isOfficial = Properties.Settings.Default.isOfficial;
             List<string> retL = new List<string>();
             string ret = "";
             var contents =new StringContent (JsonConvert.SerializeObject(Values),Encoding.UTF8, "application/json");
@@ -91,11 +96,16 @@ namespace MathpixCsharp
             client.DefaultRequestHeaders.Add("app_key", Properties.Settings.Default.key);
             try
             {
-                HttpResponseMessage response = await client.PostAsync(url,contents);
+                HttpResponseMessage response = await client.PostAsync(isOfficial?OfficialUrl:QspUrl,contents);
                 response.EnsureSuccessStatusCode();
                 string responseBody = await response.Content.ReadAsStringAsync();
                 var tmp = JsonConvert.DeserializeObject<RespJson>(responseBody);
                 //ret = JsonConvert.DeserializeObject<RespJson>(responseBody).data[1].value;
+                if (!isOfficial&& tmp.code != 200)
+                {
+                    throw new Exception(tmp.message);
+                }
+
                 var ttt = tmp.text;
                 ret = tmp.text.Replace(@"\)", "$").Replace(@"\(","$").Replace(@"\]", "$$").Replace(@"\[","$$");
                 
@@ -105,7 +115,14 @@ namespace MathpixCsharp
                 //ret_b[ret_b.Length-1] = ret_b[ret_b.Length-2] = '$';
                 //ret = Convert.ToString(ret_b);
                 retL.Add(ret);//Latex inline
-                retL.Add("\\begin{equation}\n" + ret.Substring(1,ret.Length-2) + "\n\\end{equation}");//Latex Presentation
+                if (ret.StartsWith("$"))
+                {
+                    retL.Add("\\begin{equation}\n" + ret.Substring(1, ret.Length - 2) + "\n\\end{equation}");//Latex Presentation
+                }
+                else
+                {
+                    retL.Add("\\begin{equation}\n" + ret + "\n\\end{equation}");
+                }
                 if (tmp.data.Count != 0)
                 {
                     ret = tmp.data[0].value;
@@ -113,14 +130,29 @@ namespace MathpixCsharp
                 }
                 else
                 {
-                    retL.Add("MathML功能目前只能识别单个公式~");
+                    retL.Add("MathML功能目前只能识别单个公式，请准确地截取图片");
+                }
+                if (!isOfficial)
+                {
+                    retL.Add(tmp.uses.ToString());
+                }
+                else
+                {
+                    retL.Add("INF");
                 }
             }
             catch (Exception e)
             {
-                MessageBox.Show("Http错误 :{0} ,请准确截取公式，或检查Key是否正确", e.Message);
-                Console.WriteLine("\nException Caught!");
-                Console.WriteLine("Message :{0} ", e.Message);
+                if (isOfficial)
+                {
+                    MessageBox.Show(e.Message, "Http错误 :{0} ,请准确截取公式，或检查Key是否正确");
+                    // Console.WriteLine("\nException Caught!");
+                    // Console.WriteLine("Message :{0} ", e.Message);
+                }
+                else
+                {
+                    MessageBox.Show(e.Message,"Error!");
+                }
             }
             return retL;
         }

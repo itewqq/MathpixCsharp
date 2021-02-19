@@ -98,6 +98,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
         "Release"
@@ -122,6 +130,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
     }
@@ -352,15 +368,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:MathpixCsharp"
-        "ProductCode" = "8:{1D33C27C-BBCB-4F2B-9567-B3444B4A8EDE}"
-        "PackageCode" = "8:{5F9A9277-43EC-4C46-BECD-37E24E1FF9F5}"
+        "ProductCode" = "8:{44042032-A2C5-4A5F-BDF6-19A38495AB9C}"
+        "PackageCode" = "8:{CF700C8A-2EAA-4B4A-BC9B-31F24613A2DF}"
         "UpgradeCode" = "8:{3FF64C93-B1F5-4B2E-81C6-FA6D56BB4DD0}"
         "AspNetVersion" = "8:"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:0.0.4"
+        "ProductVersion" = "8:0.0.5"
         "Manufacturer" = "8:itewqq"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"

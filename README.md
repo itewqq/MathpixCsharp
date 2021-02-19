@@ -27,7 +27,7 @@ emm照这个价格原来每个月5美刀的钱能用到秃头了。
 
 于是就自己写了一个客户端？把API key填进去就可以用了。（我愿称之为木兰mathipix）
 
-![使用测试](/images/test3.gif)
+![使用测试](/images/demo1.gif)
 
 ### Requirements:
 - 信用卡一张(visa/mastercard，etc)

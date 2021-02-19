@@ -58,5 +58,17 @@ namespace MathpixCsharp.Properties {
                 this["isOfficial"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public string uses {
+            get {
+                return ((string)(this["uses"]));
+            }
+            set {
+                this["uses"] = value;
+            }
+        }
     }
 }

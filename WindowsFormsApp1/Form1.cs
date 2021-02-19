@@ -59,8 +59,13 @@ namespace MathpixCsharp
             {
                 app_id = Properties.Settings.Default.id;
                 app_key = Properties.Settings.Default.key;
+                if (Properties.Settings.Default.isOfficial == false)
+                {
+                    this.labelUses.Text = Properties.Settings.Default.uses;
+                }
                 //MessageBox.Show(app_id);
             }
+            this.pictureBox1.Image = Properties.Resources._default;
             notifyIcon1.Visible = true;
             // notifyIcon1.ContextMenuStrip = this.menuStrip1.ContextMenuStrip;
             this.notifyIcon1.ContextMenuStrip = new System.Windows.Forms.ContextMenuStrip();
@@ -94,6 +99,7 @@ namespace MathpixCsharp
                 if (!Properties.Settings.Default.isOfficial)
                 {
                     this.labelUses.Text = codeList[3];
+                    Properties.Settings.Default.uses = codeList[3];
                 }
             }
             catch(Exception e)
@@ -221,7 +227,7 @@ namespace MathpixCsharp
 
         private void 购买第三方KeyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://mathcode.herokuapp.com/buy");
+            System.Diagnostics.Process.Start("https://mathf.xyz/");
         }
 
         private void 帮助ToolStripMenuItem1_Click(object sender, EventArgs e)

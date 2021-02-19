@@ -34,6 +34,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.labelUses = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -44,13 +45,12 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.重置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.检查更新ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.退出程序ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.label1 = new System.Windows.Forms.Label();
             this.购买第三方KeyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.检查更新ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.捐赠ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.退出程序ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.帮助ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -108,6 +108,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(485, 377);
             this.panel1.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(367, 5);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "剩余次数";
             // 
             // labelUses
             // 
@@ -169,6 +178,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.InitialImage = global::MathpixCsharp.Properties.Resources._default;
             this.pictureBox1.Location = new System.Drawing.Point(10, 23);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
@@ -205,53 +215,37 @@
             // 重置ToolStripMenuItem
             // 
             this.重置ToolStripMenuItem.Name = "重置ToolStripMenuItem";
-            this.重置ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.重置ToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.重置ToolStripMenuItem.Text = "重置Key";
             this.重置ToolStripMenuItem.Click += new System.EventHandler(this.重置ToolStripMenuItem_Click);
-            // 
-            // 检查更新ToolStripMenuItem
-            // 
-            this.检查更新ToolStripMenuItem.Name = "检查更新ToolStripMenuItem";
-            this.检查更新ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.检查更新ToolStripMenuItem.Text = "检查更新";
-            this.检查更新ToolStripMenuItem.Click += new System.EventHandler(this.检查更新ToolStripMenuItem_Click);
-            // 
-            // 退出程序ToolStripMenuItem
-            // 
-            this.退出程序ToolStripMenuItem.Name = "退出程序ToolStripMenuItem";
-            this.退出程序ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.退出程序ToolStripMenuItem.Text = "退出程序";
-            this.退出程序ToolStripMenuItem.Click += new System.EventHandler(this.退出程序ToolStripMenuItem_Click);
-            // 
-            // notifyIcon1
-            // 
-            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
-            this.notifyIcon1.Text = "MathpixCsharp";
-            this.notifyIcon1.Visible = true;
-            this.notifyIcon1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseClick);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(367, 5);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "剩余次数";
             // 
             // 购买第三方KeyToolStripMenuItem
             // 
             this.购买第三方KeyToolStripMenuItem.Name = "购买第三方KeyToolStripMenuItem";
-            this.购买第三方KeyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.购买第三方KeyToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.购买第三方KeyToolStripMenuItem.Text = "购买第三方Key";
             this.购买第三方KeyToolStripMenuItem.Click += new System.EventHandler(this.购买第三方KeyToolStripMenuItem_Click);
+            // 
+            // 检查更新ToolStripMenuItem
+            // 
+            this.检查更新ToolStripMenuItem.Name = "检查更新ToolStripMenuItem";
+            this.检查更新ToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.检查更新ToolStripMenuItem.Text = "检查更新";
+            this.检查更新ToolStripMenuItem.Click += new System.EventHandler(this.检查更新ToolStripMenuItem_Click);
             // 
             // 捐赠ToolStripMenuItem
             // 
             this.捐赠ToolStripMenuItem.Name = "捐赠ToolStripMenuItem";
-            this.捐赠ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.捐赠ToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.捐赠ToolStripMenuItem.Text = "捐赠";
             this.捐赠ToolStripMenuItem.Click += new System.EventHandler(this.捐赠ToolStripMenuItem_Click);
+            // 
+            // 退出程序ToolStripMenuItem
+            // 
+            this.退出程序ToolStripMenuItem.Name = "退出程序ToolStripMenuItem";
+            this.退出程序ToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.退出程序ToolStripMenuItem.Text = "退出程序";
+            this.退出程序ToolStripMenuItem.Click += new System.EventHandler(this.退出程序ToolStripMenuItem_Click);
             // 
             // 帮助ToolStripMenuItem1
             // 
@@ -259,6 +253,13 @@
             this.帮助ToolStripMenuItem1.Size = new System.Drawing.Size(68, 22);
             this.帮助ToolStripMenuItem1.Text = "使用说明";
             this.帮助ToolStripMenuItem1.Click += new System.EventHandler(this.帮助ToolStripMenuItem1_Click);
+            // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Text = "MathpixCsharp";
+            this.notifyIcon1.Visible = true;
+            this.notifyIcon1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseClick);
             // 
             // Form1
             // 

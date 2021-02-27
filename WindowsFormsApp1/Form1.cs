@@ -131,6 +131,13 @@ namespace MathpixCsharp
             {
                 this.Show();
             }
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
+            bool top = TopMost;
+            TopMost = true;
+            TopMost = top;
         }
 
         private void button1_Click(object sender, EventArgs e)

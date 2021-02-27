@@ -368,15 +368,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:MathpixCsharp"
-        "ProductCode" = "8:{44042032-A2C5-4A5F-BDF6-19A38495AB9C}"
-        "PackageCode" = "8:{CF700C8A-2EAA-4B4A-BC9B-31F24613A2DF}"
+        "ProductCode" = "8:{A2E0CB61-63B8-4945-8E40-7891A4A181DF}"
+        "PackageCode" = "8:{726E9B3F-97C6-4BB5-AA51-79A34A552F61}"
         "UpgradeCode" = "8:{3FF64C93-B1F5-4B2E-81C6-FA6D56BB4DD0}"
         "AspNetVersion" = "8:"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:0.0.5"
+        "ProductVersion" = "8:0.0.6"
         "Manufacturer" = "8:itewqq"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -932,7 +932,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_921FF4E1967C4055AB8A3974C4D41F38"
             {
-            "SourcePath" = "8:..\\WindowsFormsApp1\\obj\\Debug\\MathpixCsharp.exe"
+            "SourcePath" = "8:"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_C968909AB5804E62AA8E13F8B5497EDF"

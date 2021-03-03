@@ -7,6 +7,8 @@
    
 ![image.png](https://i.loli.net/2021/02/19/rbQ4LYlG37OqywS.png)
 
+> 强调一下，无论使用官方API还是第三方API，使用本客户端必须要填入两个字段，app_id和app_key。注意是**两个字段**，app_id和app_key，我觉得在教程里以及第三方的公告里已经写得很清楚了，不知道为什么很多人还是只填一个app_key，或者根本不填，或者没有把卡密的格式处理好直接带四个#来填进去，然后来找我发邮件问为什么不能用= =
+
 5. 客户端主界面如下图，使用第三方Api的时候右上角会显示当前Key的剩余使用次数：
 
 ![image.png](https://i.loli.net/2021/02/19/ucQt4NAfgOnGP2X.png)

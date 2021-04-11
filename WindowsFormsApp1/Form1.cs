@@ -21,6 +21,8 @@ namespace MathpixCsharp
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         private static extern bool RegisterHotKey(IntPtr hWnd, int id, int fsModifiers, int vk);
         Bitmap bit;
+        public bool success;
+        int last_choice = 3;
         string app_id="";
         string app_key = "";
 
@@ -43,7 +45,7 @@ namespace MathpixCsharp
             labelUses.Font = new Font("Microsoft YaHei UI", 8f);
             label1.Font = new Font("Microsoft YaHei UI", 8f);
             this.StartPosition = FormStartPosition.CenterScreen;
-            RegisterHotKey(this.Handle,0,1|2,(int)Keys.M);
+            RegisterHotKey(this.Handle,0,1|2,(int)Keys.Q);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -72,6 +74,19 @@ namespace MathpixCsharp
             this.notifyIcon1.ContextMenuStrip.Items.Add("退出", null, this.TrayMenuExit);
         }
 
+        private void CopyToClipboard(TextBox tb, Button bt)
+        {
+            try
+            {
+                Clipboard.SetText(tb.Text);
+                bt.Text = "已复制";
+            }
+            catch (System.ArgumentNullException)
+            {
+                MessageBox.Show("错误，代码为空！");
+            }
+        }
+
         void TrayMenuExit(object sender, EventArgs e)
         {
             Application.Exit();
@@ -96,6 +111,21 @@ namespace MathpixCsharp
                 textBox1.Text = codeList[0];
                 textBox2.Text = codeList[1];
                 textBox3.Text = codeList[2];
+
+                switch (last_choice)
+                {
+                    case 3:
+                        CopyToClipboard(textBox1, button3);
+                        break;
+                    case 4:
+                        CopyToClipboard(textBox2, button4);
+                        break;
+                    case 5:
+                        CopyToClipboard(textBox3, button5);
+                        break;
+                    default: break;
+                }
+
                 if (!Properties.Settings.Default.isOfficial)
                 {
                     this.labelUses.Text = codeList[3];
@@ -123,7 +153,14 @@ namespace MathpixCsharp
             ScreenShot sf = new ScreenShot();
             sf.Owner = this;
             this.Opacity = 0.0;
+            this.success = false;
             sf.ShowDialog();//make sure it's done
+            if (!this.success)
+            {
+                this.Opacity = 1.0;
+                MessageBox.Show("错误，请重试");
+                return;
+            }
             this.pictureBox1.Image = Bit;
             ScreenShotToCode(Bit);
             this.Opacity = 1.0;
@@ -160,41 +197,20 @@ namespace MathpixCsharp
 
         private void button3_Click(object sender, EventArgs e)
         {
-            try
-            {
-                Clipboard.SetText(textBox1.Text);
-                button3.Text = "已复制";
-            }
-            catch (System.ArgumentNullException)
-            {
-                MessageBox.Show("错误，代码为空！");
-            }
+            CopyToClipboard(textBox1,button3);
+            last_choice = 3;
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            try
-            {
-                Clipboard.SetText(textBox2.Text);
-                button4.Text = "已复制";
-            }
-            catch (System.ArgumentNullException)
-            {
-                MessageBox.Show("错误，代码为空！");
-            }
+            CopyToClipboard(textBox2,button4);
+            last_choice = 4;
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            try
-            {
-                Clipboard.SetText(textBox3.Text);
-                button5.Text = "已复制";
-            }
-            catch (System.ArgumentNullException)
-            {
-                MessageBox.Show("错误，代码为空！");
-            }
+            CopyToClipboard(textBox3,button5);
+            last_choice = 5;
         }
 
         private void 检查更新ToolStripMenuItem_Click(object sender, EventArgs e)

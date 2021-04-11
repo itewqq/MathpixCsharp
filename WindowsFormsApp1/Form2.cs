@@ -18,6 +18,7 @@ namespace MathpixCsharp
             InitializeComponent();
             SetStyle(ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer, true);
             TopMost = true;
+            this.Cursor = System.Windows.Forms.Cursors.Cross;
         }
         public bool begin = false;
         public bool isDoubleClick = false;
@@ -59,6 +60,10 @@ namespace MathpixCsharp
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
+            if (e.Button == MouseButtons.Right)
+            {
+                this.Close();
+            }
             if (!isDoubleClick)
             {
                 begin = true;
@@ -103,6 +108,7 @@ namespace MathpixCsharp
                 //Send to father form
                 Form1 FaForm = (Form1)this.Owner;
                 FaForm.Bit = new Bitmap(img);
+                FaForm.success = true;
             }
             GC.Collect();
             this.Close();

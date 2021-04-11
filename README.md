@@ -19,7 +19,7 @@
 
 ### 使用安装包：
 
-下载最新的[安装包](https://github.com/itewqq/MathpixCsharp/releases/download/0.0.6/MathpixCsharpV0.0.6.zip)，解压之后双击Setup.exe，按照提示走即可安装好MathpixCsharp。
+下载最新的[安装包](https://github.com/itewqq/MathpixCsharp/releases/download/0.0.7/MathpixCsharpV0.0.7.zip)，解压之后双击Setup.exe，按照提示走即可安装好MathpixCsharp。
 
 ### 从源代码编译：
 

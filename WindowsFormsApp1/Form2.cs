@@ -62,6 +62,8 @@ namespace MathpixCsharp
         {
             if (e.Button == MouseButtons.Right)
             {
+                Form1 FaForm = (Form1)this.Owner;
+                FaForm.cancelled = true;
                 this.Close();
             }
             if (!isDoubleClick)

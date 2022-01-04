@@ -22,6 +22,7 @@ namespace MathpixCsharp
         private static extern bool RegisterHotKey(IntPtr hWnd, int id, int fsModifiers, int vk);
         Bitmap bit;
         public bool success;
+        public bool cancelled;
         int last_choice = 3;
         string app_id="";
         string app_key = "";
@@ -154,7 +155,13 @@ namespace MathpixCsharp
             sf.Owner = this;
             this.Opacity = 0.0;
             this.success = false;
+            this.cancelled = false;
             sf.ShowDialog();//make sure it's done
+            if (this.cancelled)
+            {
+                this.Opacity = 1.0;
+                return;
+            }
             if (!this.success)
             {
                 this.Opacity = 1.0;
